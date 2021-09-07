@@ -6,6 +6,13 @@ var taskFormHandler = function(event) {
     event.preventDefault();
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
+    //check if input values are mepty strings
+    if (!taskNameInput || !taskTypeInput){
+        alert("You need to fill out the task form!");
+        return false;
+    }
+    //reset form inputs after each submission
+    formEl.reset();
     //package data as object
     var taskDataObj = {
         name: taskNameInput,
